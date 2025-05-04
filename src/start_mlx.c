@@ -6,7 +6,7 @@
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 15:04:39 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/04 15:04:41 by armtoros         ###   ########.fr       */
+/*   Updated: 2025/05/04 17:34:38 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ static void	init_common(t_fractol *f, char *title)
 	f->julia_mouse_lock = 0;
 }
 
+static void	start_utils(t_fractol *f, int check)
+{
+	if (check == 1)
+	{
+		f->type = BURNING_SHIP;
+		init_common(f, "Burning Ship");
+	}
+	else
+	{
+		f->type = MANDELBROT;
+		init_common(f, "Mandelbrot");
+	}
+}
+
 void	start(int check)
 {
 	t_fractol	f;
@@ -29,11 +43,7 @@ void	start(int check)
 	f.mlx = mlx_init();
 	if (!f.mlx)
 		exit(EXIT_FAILURE);
-	if (check == 1)
-		f.type = BURNING_SHIP;
-	else
-		f.type = MANDELBROT;
-	init_common(&f, "Burning Ship");
+	start_utils(&f, check);
 	f.offset_x = check * -1;
 	f.offset_y = check * -1;
 	f.julia_re = 0;

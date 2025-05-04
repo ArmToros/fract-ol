@@ -14,6 +14,7 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -Imlx
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	# @make all -C mlx
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX_LIB) $(MLX_FLAGS)
 
 clean:
