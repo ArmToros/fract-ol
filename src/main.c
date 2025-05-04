@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 17:25:19 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/04 13:40:16 by armtoros         ###   ########.fr       */
+/*   Created: 2025/05/04 15:04:27 by armtoros          #+#    #+#             */
+/*   Updated: 2025/05/04 15:04:29 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static void	write_error(void)
 {
-	write(1, "Usage: ./fractol mandelbrot | julia x[-2;2] y[-2;2] | 'burning ship'\n", 70);
+	write(1, "Usage: ./fractol mandelbrot | ", 31);
+	write(1, "julia x[-2;2] y[-2;2] | 'burning ship'\n", 40);
 	exit(1);
 }
 
@@ -34,7 +35,7 @@ int	main(int argc, char **argv)
 			write_error();
 	}
 	else if (argc == 4 && !ft_strcmp(argv[1], "julia")
-		&& ft_isJvalid(ft_atod(argv[2])) && ft_isJvalid(ft_atod(argv[3])))
+		&& ft_isjvalid(ft_atod(argv[2])) && ft_isjvalid(ft_atod(argv[3])))
 		start_julia(&f, ft_atod(argv[2]), ft_atod(argv[3]));
 	else
 		write_error();

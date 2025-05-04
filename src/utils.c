@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 17:25:57 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/03 19:31:22 by armtoros         ###   ########.fr       */
+/*   Created: 2025/05/04 15:04:53 by armtoros          #+#    #+#             */
+/*   Updated: 2025/05/04 15:04:55 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,36 @@ void	my_mlx_pixel_put(t_fractol *f, int x, int y, int color)
 
 int	get_color(int iter, int set)
 {
-	double t;
-	
+	double	t;
+	int		red;
+	int		green;
+	int		blue;
+
 	if (iter == MAX_ITER)
-		return (0x000000); // Black for points inside the set
+		return (0x000000);
 	t = iter / (double)MAX_ITER;
-	if (set == 1) // Red gradient
+	if (set == 1)
 	{
-		int red = (int)(255 * t);
+		red = (int)(255 * t);
 		return (red << 16);
 	}
-	else if (set == 2) // Green gradient
+	else if (set == 2)
 	{
-		int green = (int)(255 * t);
+		green = (int)(255 * t);
 		return (green << 8);
 	}
-	else // Default RGB blend
+	else
 	{
-		int red = (int)(100 * t);
-		int green = (int)(180 * t);
-		int blue = (int)(255 * t);
+		red = (int)(100 * t);
+		green = (int)(180 * t);
+		blue = (int)(255 * t);
 		return ((red << 16) | (green << 8) | blue);
 	}
 }
 
-
-int ft_isJvalid(double i)
+int	ft_isjvalid(double i)
 {
 	if (i <= 2.0 && i >= -2.0)
 		return (1);
-	return(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 17:24:21 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/04 13:46:31 by armtoros         ###   ########.fr       */
+/*   Updated: 2025/05/04 15:06:53 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 50
+# define HEIGHT 50
 # define MAX_ITER 100
 # define MANDELBROT 1
 # define JULIA 2
@@ -69,10 +69,8 @@ int			loop_hook(void *param);
 
 void		draw_burning_ship(t_fractol *f);
 double		ft_atod(char *s);
-int 		ft_isJvalid(double i);
-int 		close_clean_window(t_fractol *f);
-void 		start(int check);
-
-
+int			ft_isjvalid(double i);
+int			close_clean_window(t_fractol *f);
+void		start(int check);
 
 #endif
