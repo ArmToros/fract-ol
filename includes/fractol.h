@@ -6,7 +6,7 @@
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 17:24:21 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/04 15:06:53 by armtoros         ###   ########.fr       */
+/*   Updated: 2025/05/04 16:44:36 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# define WIDTH 50
-# define HEIGHT 50
+# define WIDTH 800
+# define HEIGHT 800
 # define MAX_ITER 100
 # define MANDELBROT 1
 # define JULIA 2
@@ -72,5 +72,7 @@ double		ft_atod(char *s);
 int			ft_isjvalid(double i);
 int			close_clean_window(t_fractol *f);
 void		start(int check);
+void		control_draw(t_fractol *f);
+void		start_util(t_fractol *f, double z, double x, double y);
 
 #endif
