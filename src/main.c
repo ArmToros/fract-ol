@@ -14,8 +14,8 @@
 
 static void	write_error(void)
 {
-	write(1, "Usage: ./fractol mandelbrot | ", 31);
-	write(1, "julia x[-2;2] y[-2;2] | 'burning ship'\n", 40);
+	write(2, "Usage: ./fractol mandelbrot | ", 31);
+	write(2, "julia x[-2;2] y[-2;2] | 'burning ship'\n", 40);
 	exit(1);
 }
 
