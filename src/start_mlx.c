@@ -6,15 +6,15 @@
 /*   By: armtoros <armtoros@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 15:04:39 by armtoros          #+#    #+#             */
-/*   Updated: 2025/05/04 17:34:38 by armtoros         ###   ########.fr       */
+/*   Updated: 2025/05/06 20:50:40 by armtoros         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	init_common(t_fractol *f, char *title)
+static void	init_common(t_fractol *f)
 {
-	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, title);
+	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "fract-ol");
 	f->img = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->addr = mlx_get_data_addr(f->img, &f->bpp, &f->line_len, &f->endian);
 	f->zoom = 1.0;
@@ -25,15 +25,10 @@ static void	init_common(t_fractol *f, char *title)
 static void	start_utils(t_fractol *f, int check)
 {
 	if (check == 1)
-	{
 		f->type = BURNING_SHIP;
-		init_common(f, "Burning Ship");
-	}
 	else
-	{
 		f->type = MANDELBROT;
-		init_common(f, "Mandelbrot");
-	}
+	init_common(f);
 }
 
 void	start(int check)
@@ -61,7 +56,7 @@ void	start(int check)
 void	start_julia(t_fractol *f, double x, double y)
 {
 	f->mlx = mlx_init();
-	init_common(f, "Julia Set");
+	init_common(f);
 	f->offset_x = 0.0;
 	f->offset_y = 0.0;
 	f->type = JULIA;

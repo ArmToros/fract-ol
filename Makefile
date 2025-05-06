@@ -6,7 +6,7 @@ OBJ = $(SRC:.c=.o)
 
 MLX_DIR = mlx
 MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
-MLX_FLAGS = -L$(MLX_DIR) -lmlx -lX11 -lXext -lm -lbsd
+MLX_FLAGS = -L$(MLX_DIR) -lX11 -lXext -lm -lbsd
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR)
@@ -14,16 +14,15 @@ CFLAGS = -Wall -Wextra -Werror -Iincludes -I$(MLX_DIR)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(MLX_DIR)
+	# @make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX_LIB) $(MLX_FLAGS)
 
 clean:
 	@rm -f $(OBJ)
-	@make clean -C $(MLX_DIR)
+	# @make clean -C $(MLX_DIR)
 
 fclean: clean
 	@rm -f $(NAME)
-	@make clean -C $(MLX_DIR)
+	# @make clean -C $(MLX_DIR)
 
 re: fclean all
-
