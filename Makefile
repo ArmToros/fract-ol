@@ -26,3 +26,5 @@ fclean: clean
 	# @make clean -C $(MLX_DIR)
 
 re: fclean all
+
+PHONY: all clean fclean re
