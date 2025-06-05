@@ -17,6 +17,9 @@ $(NAME): $(OBJ)
 	# @make -C $(MLX_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX_LIB) $(MLX_FLAGS)
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	@rm -f $(OBJ)
 	# @make clean -C $(MLX_DIR)
